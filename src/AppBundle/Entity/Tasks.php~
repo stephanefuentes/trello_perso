@@ -1,0 +1,67 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tasks
+ *
+ * @ORM\Table(name="tasks", indexes={@ORM\Index(name="state", columns={"state_id"}), @ORM\Index(name="project_id", columns={"project_id"})})
+ * @ORM\Entity
+ */
+class Tasks
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created-at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var \Projects
+     *
+     * @ORM\ManyToOne(targetEntity="Projects")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     * })
+     */
+    private $project;
+
+    /**
+     * @var \State
+     *
+     * @ORM\ManyToOne(targetEntity="State")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
+     * })
+     */
+    private $state;
+
+
+}
+

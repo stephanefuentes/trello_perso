@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Transitional//EN"         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="width=device-width" name="viewport">
+        <title></title>
+    </head>
+    <body>
+        <h1>
+            Confirmation
+            <h1>
+                <p>
+                    Merci de votre inscription. Veuillez visiter ce lien pour confirmer votre compte :
+                    <a href="{{ url('confirm', { 'token': token } ) }}">
+                        Confirmation</a>
+                </p>
+            </body>
+        </html>
+    </body>
+</html>
